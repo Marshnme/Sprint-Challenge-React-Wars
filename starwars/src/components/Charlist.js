@@ -4,22 +4,24 @@ import axios from "axios";
 
 
 function CharList(){
-    const [people, SetPeople ] = useState("")
+    const [starPeople, SetStarPeople ] = useState([])
     useEffect(() => {
         axios
             .get("https://swapi.co/api/people/")
             .then(response => {
-                console.log("SW data", response.data.results)
+                SetStarPeople(response.data.results);
+                console.log(response.data.results)
             })
     },[])
 
     return (
         <div className = "container">
-            {people.map(item =>{
+            {starPeople.map(item =>{
                 return (
                     <CharCard
-                        
-                    
+                        name = {item.name}
+                        height = {item.height}
+                        mass = {item.mass}
                     />
                 )
             })}
