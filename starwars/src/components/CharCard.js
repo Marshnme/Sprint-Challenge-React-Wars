@@ -1,13 +1,21 @@
 import React from 'react';
+import styled from "styled-components";
+
+const Card = styled.div`
+    width:30%;
+    border: 1px solid black;
+    margin-top:3%;
+    background:#f7b94f;
+`;
 
     const CharCard = props => {
         return(
-            <div className = "container">
+            <Card>
                 <h2>{props.name}</h2>
-                <p>{props.height}</p>
-                <p>{props.mass}</p>
+                <p>Height: {props.height}</p>
+                <p>Mass: {props.mass}</p>
 
-            </div>
+            </Card>
         )
     };
 

@@ -1,7 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import CharCard from "./CharCard"
 import axios from "axios";
+import styled from "styled-components";
 
+const Entry = styled.div`
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    
+`;
 
 function CharList(){
     const [starPeople, SetStarPeople ] = useState([])
@@ -16,16 +23,17 @@ function CharList(){
 
     return (
         <div className = "container">
-            {starPeople.map(item =>{
-                return (
-                    <CharCard
-                        name = {item.name}
-                        height = {item.height}
-                        mass = {item.mass}
-                    />
-                )
-            })}
-
+            <Entry>
+                {starPeople.map(item =>{
+                    return (
+                        <CharCard
+                            name = {item.name}
+                            height = {item.height}
+                            mass = {item.mass}
+                        />
+                    )
+                })}
+            </Entry>
         </div>
 
     )
